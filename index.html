@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+           .container{
+            border: 2px solid;
+            box-shadow: 4px 3px 4px; 
+            height: 60vh;
+            width: 60vh;
+            margin: auto;
+            background-color: rgb(102, 180, 180);      
+            }
+            .box{
+                border:none;
+                height: auto;
+                margin-left: 15%;     
+            }
+            h2{
+                text-align: center;
+                border-bottom: 0.5px solid white;
+            }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>TO-DO LIST :</h2>
+        <div class="box">
+            <input type="text" placeholder="write your toDo...." id="inputTask">
+            <button onclick="add()" class="addTask">Add task</button>
+            <div>
+                <ul class="taskList">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+          function add()
+          { if (inputTask.value==''){
+            alert('Please write something..')
+          } else{
+            
+ 
+            newTask = document.createElement('li')
+            var taskList = document.querySelector('.taskList')
+            taskList.append(newTask)
+            newTask.textContent =  document.getElementById('inputTask').value
+            document.getElementById('inputTask').value =''
+             deleteTask(newTask)
+               
+        }
+        function deleteTask(newTask){
+           var deletebtn = document.createElement('button')
+           deletebtn.textContent = 'delete'
+           newTask.append(deletebtn)
+           deletebtn.onclick = function(){
+            newTask.remove()
+           }
+        }
+          }
+    </script>
+</body>
+</html>
